@@ -14,6 +14,7 @@ import Home from './pages/Home';
 import ErrorPage from './pages/ErrorPage';
 import Details from './pages/Details';
 
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -28,9 +29,12 @@ const router = createBrowserRouter([
         path: "/listed",
         element: <ListedBooks></ListedBooks>,
       },
+             
+
       {
-         path:"/details/:Id",
+         path:"/details/:id",
          element: <Details></Details>,
+        loader: ()=>fetch('../fakeData.json'),
         
       },
       {
