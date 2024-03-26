@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 const Navbar = () => {
     return (
         <div>
-            <div className="navbar bg-base-200">
+            <div className="navbar ">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -22,11 +22,11 @@ const Navbar = () => {
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal font-semibold  gap-4 rounded-box ">
-                        <NavLink to='/' className={({isActive}) => isActive ? 'text-lime-500' : 'font-bold'}>Home</NavLink>
-                        <NavLink to='/listed' className={({isActive}) => isActive ? 'text-lime-500' : 'font-bold'}>Listed Books</NavLink>
-                        <NavLink to='/pages' className={({isActive}) => isActive ? 'text-lime-500' : 'font-bold'}>Pages to Read</NavLink>
-                        <NavLink to='/want' className={({isActive}) => isActive ? 'text-lime-500' : 'font-bold'}>Want To Buy</NavLink>
-                        <NavLink to='/special' className={({isActive}) => isActive ? 'text-lime-500' : 'font-bold'}>Special Books</NavLink>
+                        <NavLink to='/' className={({isActive}) => isActive ? 'text-lime-500 border-2 rounded border-lime-500 p-1' : 'font-bold'}>Home</NavLink>
+                        <NavLink to='/listed' className={({isActive}) => isActive ? 'text-lime-500 border-2 rounded border-lime-500 p-1' : 'font-bold'}>Listed Books</NavLink>
+                        <NavLink to='/pages' className={({isActive}) => isActive ? 'text-lime-500 border-2 rounded border-lime-500 p-1' : 'font-bold'}>Pages to Read</NavLink>
+                        <NavLink to='/want' className={({isActive}) => isActive ? 'text-lime-500 border-2 rounded border-lime-500 p-1' : 'font-bold'}>Want To Buy</NavLink>
+                        <NavLink to='/special' className={({isActive}) => isActive ? 'text-lime-500 border-2 rounded border-lime-500 p-1' : 'font-bold'}>Special Books</NavLink>
                     </ul>
                 </div>
                 <div className="navbar-end gap-2 ">

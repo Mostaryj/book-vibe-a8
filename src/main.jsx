@@ -11,11 +11,13 @@ import PagesToRead from './pages/PagesToRead';
 import WantToBuy from './pages/WantToBuy';
 import SpecialBook from './pages/SpecialBook';
 import Home from './pages/Home';
+import ErrorPage from './pages/ErrorPage';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayOut></MainLayOut>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: '/',
