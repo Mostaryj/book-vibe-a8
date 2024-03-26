@@ -12,6 +12,7 @@ import WantToBuy from './pages/WantToBuy';
 import SpecialBook from './pages/SpecialBook';
 import Home from './pages/Home';
 import ErrorPage from './pages/ErrorPage';
+import Details from './pages/Details';
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,11 @@ const router = createBrowserRouter([
       {
         path: "/listed",
         element: <ListedBooks></ListedBooks>,
+      },
+      {
+         path:"/details/:Id",
+         element: <Details></Details>,
+        
       },
       {
         path: "/pages",
