@@ -1,4 +1,5 @@
 import { useLoaderData, useParams } from "react-router-dom";
+import { saveList } from "../utils/localStorage";
 
 const Details = () => {
     const details = useLoaderData();
@@ -6,7 +7,17 @@ const Details = () => {
     const idInt = parseInt(id);
     const detail = details.find(detail => detail.Id === idInt);
 
-    console.log(detail);
+    // console.log(detail);
+    const handleRead = ()=>{
+        saveList(idInt);
+        alert('applied successfully')
+    }
+
+   const handleWishList =() =>{
+    saveList(idInt);
+    alert('added')
+   }
+
     return (
         <div>
             
@@ -34,8 +45,8 @@ const Details = () => {
                 <p>Year of Publishing: <span className="font-bold">{detail.yearOfPublishing}</span></p>
                 <p>Rating: <span className="font-bold">{detail.rating}</span></p>
 
-                <button className="btn mt-4 font-bold border-2">Read</button>
-                <button className="btn bg-sky-500 text-white ml-4 font-bold">WishList</button>
+                <button onClick={handleRead} className="btn mt-4 font-bold border-2">Read</button>
+                <button onClick={handleWishList} className="btn bg-sky-500 text-white ml-4 font-bold">WishList</button>
                
               
             </div>

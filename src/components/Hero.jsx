@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom';
 import banner from '../assets/images/banner.png'
 const Hero = () => {
+    
     return (
+       
         <div>
               <div className="hero bg-base-200  mt-0 my-20 rounded-lg">
                 <div className="hero-content flex-col lg:flex-row-reverse">
@@ -11,11 +13,13 @@ const Hero = () => {
                      
                      
                        <div className='mt-16 btn bg-lime-500 text-white '>
-                       <Link to='/listed'>View The List</Link>
+                       <Link to={'/listed'}>View The List</Link>
                        </div>
                     </div>
                 </div>
             </div>
+
+            
         </div>
 
 
