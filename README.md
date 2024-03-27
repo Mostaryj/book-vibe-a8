@@ -1,6 +1,6 @@
 # Book Vibe Page
 
-website name: vite + react
+website name: Book Vibe
 
 website live link: https://assignment-8-book.netlify.app/
 
