@@ -1,5 +1,9 @@
 import { useLoaderData, useParams } from "react-router-dom";
 import { saveList } from "../utils/localStorage";
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+import { useState } from "react";
+
 
 const Details = () => {
     const details = useLoaderData();
@@ -7,15 +11,25 @@ const Details = () => {
     const idInt = parseInt(id);
     const detail = details.find(detail => detail.Id === idInt);
 
-    // console.log(detail);
-    const handleRead = ()=>{
+    
+    const [books, setBooks] = useState([]);
+
+    const handleRead = (book)=>{
         saveList(idInt);
-        alert('applied successfully')
+        const isExit = books.find((items)=>items.id === book.Id);
+        if(!isExit){
+            setBooks([...books, book])
+            toast.success('added successfully')
+        }
+
+       else{
+        toast.error('already added')
+       }
     }
 
    const handleWishList =() =>{
     saveList(idInt);
-    alert('added')
+    toast('saved successfully')
    }
 
     return (
@@ -51,6 +65,7 @@ const Details = () => {
               
             </div>
            </div>
+           <ToastContainer/>
 
         </div>
     );

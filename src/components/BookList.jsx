@@ -10,17 +10,23 @@ const BookList = ({ book }) => {
         yearOfPublishing } = book;
     return (
         <div>
-            <div className="card card-side bg-base-100 shadow-xl gap-4 lg:flex flex flex-1 border-2">
 
 
-                <figure><img src={image} alt="book" /></figure>
 
 
-                <div className="card-body">
-                    <h2 className="card-title">{bookName}</h2>
+            <div className="card md:card-side bg-base-100 shadow-xl gap-4 lg:flex  flex-1 border-2 p-2">
+
+                 
+
+                
+                <figure><img className='md:mt-20 lg:ml-20' src={image} alt="book" /></figure>
+               
+
+                <div className="card-body lg:ml-30">
+                    <h2 className="card-title font-bold">{bookName}</h2>
                     <p>By: {author}</p>
 
-                    <div className="flex  space-x-2">
+                    <div className="md:flex  space-x-2 ">
 
 
                         <div className='flex gap-2 items-center'>
@@ -38,24 +44,26 @@ const BookList = ({ book }) => {
 
                     </div>
 
-                    <div className='flex lg:gap-10 mt-2'>
+                    <div className='md:flex items-center lg:gap-10 mt-2 space-y-2'>
                         <div className='flex gap-1'>
-                            <img src={photo} alt="" />
+                            <img className='w-[20px] h-[20px]' src={photo} alt="" />
                             <p>Publisher:{publisher}</p>
                         </div>
                         <div className='flex'>
-                            <img src={Frame} alt="" />
+                            <img className='w-[20px] h-[20]' src={Frame} alt="" />
                             <p>Pages: {totalPages}</p>
                         </div>
                     </div>
                     <hr className='mt-2' />
 
 
-                    <div className="card-actions ">
+                    <div className="card-actions md:flex">
                         <button className=" btn bg-sky-200 text-sky-500 rounded-full">Category:{category}</button>
                         <button className="btn bg-orange-200 text-orange-500 rounded-full">Rating:{rating}</button>
 
-                        <Link to={`/details/${Id}`} className="btn bg-lime-500 text-white rounded-xl">View Details</Link>
+                     
+                       <Link to={`/details/${Id}`} className="btn bg-lime-500 text-white rounded-xl">View Details</Link>
+                     
                     </div>
                 </div>
             </div>
