@@ -6,12 +6,35 @@ const getStoredRead =()=>{
     return [];
 }
 
-const saveList = id =>{
+const saveList = Id =>{
        const storedReads = getStoredRead();
-       const exits = storedReads.find(readId => readId === id );
+       const exits = storedReads.find(readId => readId === Id );
        if(!exits){
-        storedReads.push(id);
+        storedReads.push(Id);
         localStorage.setItem('read-book',JSON.stringify(storedReads) );
        }
 }
+
+
+
+const getStoredWish =()=>{
+    const storedRead = localStorage.getItem('wish-book');
+    if(storedRead){
+        return JSON.parse(storedRead);
+    }
+    return [];
+}
+
+
+const saveWishList = Id =>{
+    const storedReads = getStoredWish();
+    const exits = storedReads.find(readId => readId === Id );
+    if(!exits){
+     storedReads.push(Id);
+     localStorage.setItem('wish-book',JSON.stringify(storedReads) );
+    }
+}
+
+
 export {saveList, getStoredRead}
+export {getStoredWish, saveWishList}

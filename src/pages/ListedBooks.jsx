@@ -22,9 +22,11 @@ const ListedBooks = () => {
       }
     }, [])
 
-    // const [tab, setTab] = useState(0);
+     const [tab, setTab] = useState(0);
 
-   
+   const handleTab =(id)=>{
+         setTab(id)
+   }
 
    
 
@@ -38,15 +40,21 @@ const ListedBooks = () => {
            
      {/* tab */}
 <div className="flex justify-start  -mx-4 overflow-x-auto overflow-y-hidden  flex-nowrap dark:bg-gray-100 dark:text-gray-800">
-	<button  onClick={()=>setTab(0)} className="flex items-center flex-shrink-0 px-5 py-3 space-x-2 border-b dark:border-gray-600 dark:text-gray-600">
+
+    <div className={tab === 0 ? 'read-list': 'wishlist'}>
+    <button  onClick={()=>handleTab(0)} className="flex items-center flex-shrink-0 px-5 py-3 space-x-2 border-b dark:border-gray-600 dark:text-gray-600">
 		
 		<span>Read Books</span>
 	</button>
-    
-	<button  onClick={()=>setTab(1)}  className="flex items-center flex-shrink-0 px-5 py-3 space-x-2 border border-b-0 rounded-t-lg dark:border-gray-600 dark:text-gray-900">
+    </div>
+	
+    <div className={tab === 1 ? 'read-list': 'wishlist'}>
+    <button  onClick={()=>handleTab(1)}  className="flex items-center flex-shrink-0 px-5 py-3 space-x-2 border border-b-0 rounded-t-lg dark:border-gray-600 dark:text-gray-900">
 		
 		<span>Wishlist Books</span>
 	</button>
+    </div>
+	
 	
 </div>
  

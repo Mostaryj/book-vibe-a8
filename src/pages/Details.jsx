@@ -1,5 +1,7 @@
-import { Link, useLoaderData, useParams } from "react-router-dom";
-import { saveList } from "../utils/localStorage";
+import { useLoaderData, useParams } from "react-router-dom";
+import { getStoredRead, saveList } from "../utils/localStorage";
+import{getStoredWish, saveWishList} from "../utils/localStorage.js"
+
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import { useState } from "react";
@@ -15,11 +17,15 @@ const Details = () => {
     const [books, setBooks] = useState([]);
 
     const handleRead = (book)=>{
-        saveList(idInt);
-        const isExit = books.find((items)=>items.id === book.Id);
-        if(!isExit){
+        const stored = getStoredRead();
+        console.log(stored);
+        const bookIsExit = stored.find((bk)=>bk === idInt);
+        console.log(bookIsExit);
+
+        if(!bookIsExit){
+            saveList(idInt)
             setBooks([...books, book])
-            toast.success('added successfully')
+            toast.success(' added to read list successfully')
         }
 
        else{
@@ -27,10 +33,24 @@ const Details = () => {
        }
     }
 
-   const handleWishList =() =>{
-    saveList(idInt);
-    toast('saved successfully')
+   const handleWishList =(book) =>{
+    const storedRead = getStoredRead();
+
+    const bookIsExitRead = storedRead.find((bk)=> bk === idInt);
+
+    const stored = getStoredWish();
+    const bookIsExit = stored.find((bk)=> bk === idInt)
+    if(!bookIsExit && !bookIsExitRead){
+        saveWishList(idInt)
+        setBooks([...books, book])
+        toast.success('added to read list successfully')
+
+    }
+   
+   else{
+    toast.error('already added')
    }
+}
 
     return (
         <div>
@@ -59,9 +79,9 @@ const Details = () => {
                 <p>Year of Publishing: <span className="font-bold">{detail.yearOfPublishing}</span></p>
                 <p>Rating: <span className="font-bold">{detail.rating}</span></p>
 
-           <Link to={`/pages/${id}`}>
+           
                 <button onClick={handleRead} className="btn mt-4 font-bold border-2">Read</button>
-                </Link>
+               
                 <button onClick={handleWishList} className="btn bg-sky-500 text-white ml-4 font-bold">WishList</button>
                
               
