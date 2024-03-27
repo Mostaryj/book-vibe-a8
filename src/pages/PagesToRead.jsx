@@ -1,32 +1,23 @@
-import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid } from 'recharts';
+import { useEffect, useState } from 'react';
+import { useLoaderData, useParams } from 'react-router-dom';
+// import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid } from 'recharts';
 
-const colors = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', 'red', 'pink'];
+// const colors = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', 'red', 'pink'];
 
 
 const PagesToRead = () => {
+
+    const pages = useLoaderData();
+    const { id } = useParams();
+    const idInt = parseInt(id);
+    const detail = pages.find(detail => detail.Id === idInt);
+
+     console.log(pages, detail)
+
     return (
         <div>
-            <h1>pages to read</h1>
-            <BarChart
-      width={500}
-      height={300}
-      data={data}
-      margin={{
-        top: 20,
-        right: 30,
-        left: 20,
-        bottom: 5,
-      }}
-    >
-        <CartesianGrid strokeDasharray="3 3" />
-      <XAxis dataKey="name" />
-      <YAxis />
-      <Bar dataKey="uv" fill="#8884d8" shape={<TriangleBar />} label={{ position: 'top' }}>
-        {data.map((entry, index) => (
-          <Cell key={`cell-${index}`} fill={colors[index % 20]} />
-        ))}
-         </Bar>
-    </BarChart>
+            <h1>pages to read:{pages.length} </h1>
+      
         </div>
     );
 };

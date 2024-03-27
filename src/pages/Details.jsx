@@ -1,4 +1,4 @@
-import { useLoaderData, useParams } from "react-router-dom";
+import { Link, useLoaderData, useParams } from "react-router-dom";
 import { saveList } from "../utils/localStorage";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
@@ -59,7 +59,9 @@ const Details = () => {
                 <p>Year of Publishing: <span className="font-bold">{detail.yearOfPublishing}</span></p>
                 <p>Rating: <span className="font-bold">{detail.rating}</span></p>
 
+           <Link to={`/pages/${id}`}>
                 <button onClick={handleRead} className="btn mt-4 font-bold border-2">Read</button>
+                </Link>
                 <button onClick={handleWishList} className="btn bg-sky-500 text-white ml-4 font-bold">WishList</button>
                
               
