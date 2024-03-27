@@ -1,8 +1,11 @@
+import { Link } from 'react-router-dom';
 import Frame from '../assets/images/Frame.png'
 import photo from '../assets/images/photo.png'
+import PropTypes from 'prop-types';
+
 const BookList = ({ book }) => {
 
-    const { bookName, image, author, tags, publisher, category, rating,
+    const { Id, bookName, image, author, tags, publisher, category, rating,
         totalPages,
         yearOfPublishing } = book;
     return (
@@ -10,7 +13,7 @@ const BookList = ({ book }) => {
             <div className="card card-side bg-base-100 shadow-xl gap-4 lg:flex flex flex-1 border-2">
 
 
-                <figure><img src={image} alt="Movie" /></figure>
+                <figure><img src={image} alt="book" /></figure>
 
 
                 <div className="card-body">
@@ -20,11 +23,11 @@ const BookList = ({ book }) => {
                     <div className="flex  space-x-2">
 
 
-<div className='flex gap-2 items-center'>
-    <p className='font-bold'>Tag:</p>
-    <button className='bg-base-200 text-lime-500 rounded-3xl p-1'>#{tags[0]}</button>
-    <button className='bg-base-200 text-lime-500 rounded-3xl p-1'>#{tags[1]}</button>
-</div>
+                        <div className='flex gap-2 items-center'>
+                            <p className='font-bold'>Tag:</p>
+                            <button className='bg-base-200 text-lime-500 rounded-3xl p-1'>#{tags[0]}</button>
+                            <button className='bg-base-200 text-lime-500 rounded-3xl p-1'>#{tags[1]}</button>
+                        </div>
 
                         <p className="flex"> <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
@@ -49,10 +52,10 @@ const BookList = ({ book }) => {
 
 
                     <div className="card-actions ">
-                        <button className="btn bg-sky-200 text-sky-500 rounded-full">Category:{category}</button>
+                        <button className=" btn bg-sky-200 text-sky-500 rounded-full">Category:{category}</button>
                         <button className="btn bg-orange-200 text-orange-500 rounded-full">Rating:{rating}</button>
 
-                        <button className="btn bg-lime-500 text-white rounded-full">View Details</button>
+                        <Link to={`/details/${Id}`} className="btn bg-lime-500 text-white rounded-xl">View Details</Link>
                     </div>
                 </div>
             </div>
@@ -60,4 +63,11 @@ const BookList = ({ book }) => {
     );
 };
 
+
+
 export default BookList;
+
+
+BookList.propTypes = {
+    book: PropTypes.object,
+}
