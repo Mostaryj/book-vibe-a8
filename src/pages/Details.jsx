@@ -63,7 +63,7 @@ const Details = () => {
                 </div>
 
             <div className="p-8">
-                <h2 className="text-3xl font-bold">{detail.bookName}</h2>
+                <h2 className="text-3xl font-bold font-play">{detail.bookName}</h2>
                 <h4 className="text-normal">By: {detail.author}</h4>
                 <hr className="mt-4"/>
                 <p>{detail.category}</p>

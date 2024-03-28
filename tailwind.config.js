@@ -6,6 +6,9 @@ export default {
   ],
   theme: {
     extend: {},
+    fontFamily: {
+      play:["Playfair Display"]
+    }
   },
   plugins: [require("daisyui")],
 }

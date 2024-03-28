@@ -15,7 +15,7 @@ const BookCard = ({ bookCard }) => {
                         <div className="badge badge-outline">{tags[1]}</div>
                     </div>
 
-                    <h2 className="card-title font-bold">
+                    <h2 className="card-title font-bold  font-play">
                         {bookName}    </h2>
                     <p className="">By: {author}</p>
 

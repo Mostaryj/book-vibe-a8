@@ -23,7 +23,7 @@ const BookList = ({ book }) => {
                
 
                 <div className="card-body lg:ml-30">
-                    <h2 className="card-title font-bold">{bookName}</h2>
+                    <h2 className="card-title font-bold text-2xl font-play">{bookName}</h2>
                     <p>By: {author}</p>
 
                     <div className="md:flex  space-x-2 ">

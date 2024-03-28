@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const WantToBuy = () => {
     return (
         <div>
-            <h1 className="font-bold text-3xl text-center mt-8">Want to Buy Books</h1>
+            <h1 className="font-bold text-3xl text-center mt-8 font-play">Want to Buy Books</h1>
             <p className="text-center">Here is some lists of the category and my favorite writers name. These are the book I want to buy.</p>
 
             <div className="lg:flex justify-center gap-8">
