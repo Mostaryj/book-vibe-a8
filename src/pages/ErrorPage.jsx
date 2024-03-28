@@ -7,7 +7,7 @@ const ErrorPage = () => {
             <h2 className="text-3xl mt-4 font-bold text-center">Oops!!! <br />Not Found</h2> <br />
             <h4 className="text-xl text-center">Enter The Right Path</h4>
            <div className="text-center mt-8">
-           <Link to='/'><button className="btn bg-lime-400 ">Go back</button>
+           <Link to='/'><button className="btn bg-lime-500 ">Go back</button>
             </Link>
            </div>
         </div>
