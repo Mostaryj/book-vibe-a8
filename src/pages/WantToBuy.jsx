@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 const WantToBuy = () => {
     return (
@@ -32,6 +33,19 @@ const WantToBuy = () => {
 
                 </div>
             </div>
+
+
+            
+                <div className="
+                ml-16 lg:ml-0 flex justify-center mt-8">
+                    <button className="btn bg-orange-200 border-2 border-orange-600"> See Details</button>
+                </div>
+                   <h5 className="ml-16 lg:ml-0 text-center mt-4">Or,</h5>
+                <div className="flex justify-center">
+                    <Link to='/'><button className="btn lg:ml-0 ml-16 mt-4 bg-lime-500  border-2 border-lime-800 ">Go back</button>
+                    </Link>
+                </div>
+           
         </div>
     );
 };

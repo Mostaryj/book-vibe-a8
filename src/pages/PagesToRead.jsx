@@ -55,6 +55,8 @@ const data = [
         Z`;
       };
 
+    
+
       const TriangleBar = (props) => {
         const { fill, x, y, width, height } = props;
       

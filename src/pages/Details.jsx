@@ -80,7 +80,7 @@ const Details = () => {
                 <p>Rating: <span className="font-bold">{detail.rating}</span></p>
 
            
-                <button onClick={handleRead} className="btn mt-4 font-bold border-2">Read</button>
+                <button onClick={handleRead} className="btn mt-4 font-bold border-2">  Read</button>
                
                 <button onClick={handleWishList} className="btn bg-sky-500 text-white ml-4 font-bold">WishList</button>
                
