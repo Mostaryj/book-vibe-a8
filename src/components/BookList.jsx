@@ -14,7 +14,7 @@ const BookList = ({ book }) => {
 
 
 
-            <div className="card md:card-side bg-base-100 shadow-xl gap-4 lg:flex  flex-1 border-2 p-2">
+            <div className="card md:card-side bg-base-100 shadow-xl gap-4 lg:flex  flex-1 border-2  p-2">
 
                  
 

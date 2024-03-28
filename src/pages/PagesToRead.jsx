@@ -31,7 +31,7 @@ const ids = getStoredRead();
 
 
     return (
-        <div>
+        < div>
 
     <BarChart
       width={1100}

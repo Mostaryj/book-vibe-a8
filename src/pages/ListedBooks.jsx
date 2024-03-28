@@ -1,81 +1,99 @@
 import { useEffect, useState } from "react";
-import { getStoredRead } from "../utils/localStorage";
+import { getStoredRead, getStoredWish } from "../utils/localStorage";
 import BookList from "../components/BookList";
 import { useLoaderData } from "react-router-dom";
 
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import 'react-tabs/style/react-tabs.css';
 
 
 
 
 const ListedBooks = () => {
-    
-    const books = useLoaderData();
 
-    const [readBook, setReadBook] = useState([]);
+  const books = useLoaderData();
 
-    useEffect(()=>{
+  const [readBook, setReadBook] = useState([]);
 
-      const storedId = getStoredRead();
-      if(books.length > 0){
-       const read = books.filter(book => storedId.includes(book.Id))
+   const [wishlist, setWishlist]= useState([]);
+
+  useEffect(() => {
+
+    const storedId = getStoredRead();
+    if (books.length > 0) {
+      const read = books.filter(book => storedId.includes(book.Id))
 
 
-    setReadBook(read);
-    //    console.log(books, storedId, read);
-      }
-    }, [])
-
-     const [tab, setTab] = useState(0);
-
-   const handleTab =(id)=>{
-         setTab(id)
-   }
-
-   
-
-    return (
-        <div>
-           
-            <div className="bg-base-300">
-            <h1 className="font-bold text-4xl my-12 text-center p-4">Books</h1>
-            </div>
-
-           
-     {/* tab */}
-
-     <div className="flex justify-start  -mx-4 overflow-x-auto overflow-y-hidden  flex-nowrap dark:bg-gray-100 dark:text-gray-800">
-
-   
-<button className={tab === 0 ? 'read-list': 'wishlist'} onClick={()=>handleTab(0)} >
-
-<span className="flex items-center flex-shrink-0 px-5 py-3 space-x-2 border-b dark:border-gray-600 dark:text-gray-600">Read Books</span>
-</button>
+      setReadBook(read);
+      //  console.log(books, storedId, read);
+    }
+  }, [])
 
 
 
-<button className={tab === 1 ? 'read-list': 'wishlist'} onClick={()=>handleTab(1) }  >
+   useEffect(()=>{
 
-<span className="flex items-center flex-shrink-0 px-5 py-3 space-x-2 border border-b-0 rounded-t-lg dark:border-gray-600 dark:text-gray-900">Wishlist Books</span>
-</button>
-
-
-
-</div>
-
-
- 
+     const storedId = getStoredWish();
+     if(books.length > 0){
+      const read = books.filter(book => storedId.includes(book.Id))
+      setWishlist(read);
+        }
+      }, [])
 
 
-            {
-                readBook.map(book => <BookList book={book} key={readBook.id}></BookList>)
+
+
+  return (
+    <div>
+
+      <div className="bg-base-300">
+        <h1 className="font-bold text-4xl my-12 text-center p-4">Books</h1>
+      </div>
+
+
+      {/* dropdown */}
+
+      <div className="text-center my-8 mb-16">
+        <details className="dropdown">
+          <summary className="m-1 btn">
+            open or close
+          </summary>
+          <ul className="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
+            <li><a>Item 1</a></li>
+            <li><a>Item 2</a></li>
+          </ul>
+        </details>
+      </div>
+
+      {/* tab */}
+      <Tabs>
+        <TabList>
+          <Tab>Read</Tab>
+          <Tab>Wishlist</Tab>
+        </TabList>
+
+
+        <TabPanel>
+          {/* <h2>Read</h2> */}
+          {
+            readBook.map(book => <BookList book={book} key={readBook.id}></BookList>)
+          }
+        </TabPanel>
+
+        <TabPanel>
+         
+       
+
+
+             {
+                wishlist.map(book => <BookList book={book} key={readBook.id}></BookList>)
             }
+        </TabPanel>
+      </Tabs>
 
 
-
-
-           
-        </div>
-    );
+    </div>
+  );
 };
 
 export default ListedBooks;
